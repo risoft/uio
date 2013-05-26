@@ -1,0 +1,35 @@
+<submenu token="ROOT" platform="desktop">
+	<form token="LOGIN" class="Login" platform="all"/>
+	<submenu token="SETTINGS">
+	
+		<form token="ACCOUNT_DATA" />
+		<form token="ACCOUNT_USERS" />
+		<submenu token="TEMPLATES">
+			<form token="SMSTEMPLATE_NEW" class="SmsTemplate"/>
+			<grid token="SMSTEMPLATE_ALL" class="SmsTemplate"/>
+			<form token="EMAILTEMPLATE_NEW" class="MailTemplate"/>
+			<grid token="EMAILTEMPLATE_ALL" class="MailTemplate"/>
+		</submenu>
+		<form token="ACCOUNT_EMAIL" class="OutgoingEmail" loadObject="true"/>
+		<form token="ACCOUNT_SMS" class="SmsOrigin" loadObject="true"/>
+	</submenu>
+	<submenu token="CUSTOMERS">
+		<form token="CUSTOMERS_NEW" class="Customer"/>
+		<grid token="CUSTOMERS_ALL" class="Customer" platform="all"/>
+	</submenu>
+	<submenu token="TICKETS">
+		<form token="TICKETS_NEW_MONTHLY" type="form" class="MonthlyTicket"/>
+		<form token="TICKETS_MONTHLY" type="form" class="MonthlyTicket"/>
+		<grid token="TICKETS_ALL"/>
+
+		<form token="TICKETS_PENDING" type="dsquare.LateGrid">
+			{url:
+			'Ticket/pending.json'}
+		</form>
+		<form token="TICKETS_LATE" type="dsquare.LateGrid">
+			{ url:
+			'Ticket/late.json'}
+		</form>
+	</submenu>
+	<link token="EXIT" url="logout.htm" platform="all"/>
+</submenu>

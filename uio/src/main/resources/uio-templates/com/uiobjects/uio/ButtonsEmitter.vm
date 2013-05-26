@@ -1,0 +1,30 @@
+[{
+	xtype: 'button',
+    text: $ctx.J("submit"),
+    id: 'submitbutton',
+    handler: function() {
+    	#if ($ctx.mobile)
+    		var form = this.up('formpanel');
+    	#else
+    		var form = this.up('form').getForm();
+    	#end
+    	form.submit(
+    	{
+    		success: function(form, action) {
+                       form.reset();
+                    }
+    	}
+    	);
+    }
+},{
+	xtype: 'button',
+	text: $ctx.J('reset'),
+	    handler: function() {
+   		#if ($ctx.mobile)
+    		this.up('formpanel').reset();
+    	#else
+    		this.up('form').getForm().reset();
+    	#end
+
+	    }
+}];
