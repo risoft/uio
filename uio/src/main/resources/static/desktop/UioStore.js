@@ -1,4 +1,4 @@
-Ext.define('uio.UioStore',
+Ext.define('uio.desktop.UioStore',
     			{
     				extend: 'Ext.data.JsonStore',
     				xtype: 'uiostore',

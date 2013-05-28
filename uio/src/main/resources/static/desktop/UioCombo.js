@@ -1,6 +1,6 @@
 
 
-Ext.define('uio.UioCombo', {
+Ext.define('uio.desktop.UioCombo', {
 	extend: 'Ext.form.ComboBox',
     queryMode: 'remote',
     displayField: 'display',

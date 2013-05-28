@@ -1,8 +1,8 @@
-Ext.define('uio.UioForm',
+Ext.define('uio.desktop.UioForm',
     			{
     				extend: 'Ext.form.Panel',
     				xtype: 'uioform',
-    				requires: ['uio.UioCombo'],
+    				requires: ['uio.desktop.UioCombo'],
     				allowOnlyWhitespace: false,
     				constructor: function(config) {
     					config.items = uio.formdefs[config.jclass].items;

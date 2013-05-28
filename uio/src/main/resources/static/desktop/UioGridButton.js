@@ -1,4 +1,4 @@
-Ext.define('uio.UioGridButton',
+Ext.define('uio.desktop.UioGridButton',
     			{
     				extend: 'Ext.button.Button',
     				xtype: 'uiogridbutton',
@@ -42,7 +42,7 @@ Ext.define('uio.UioGridButton',
 		    			else if (this.form)
 		    			{
 		    	  			var config ={jclass: this.form, baseParams: {ids: ids}, header: false};
-		        			var form = Ext.create('uio.UioForm', config);
+		        			var form = Ext.create('uio.desktop.UioForm', config);
 		        			var window = Ext.create('Ext.window.Window', {
 		        					layout: 'fit', items: [form], title: config.title, shrinkWrap: 3});
 		        					
