@@ -1,5 +1,5 @@
-<submenu token="ROOT" platform="desktop">
-	<form token="LOGIN" class="Login" platform="all"/>
+<submenu token="ROOT" platform="desktop" authentication="loggedin">
+	<form token="LOGIN" class="Login" platform="all" authentication="anonymous"/>
 	<submenu token="SETTINGS">
 	
 		<form token="ACCOUNT_DATA" />

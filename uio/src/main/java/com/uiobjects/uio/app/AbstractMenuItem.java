@@ -9,6 +9,9 @@ public abstract class AbstractMenuItem implements MenuItem {
 	@XStreamAsAttribute
 	private Platform platform;
 	
+	@XStreamAsAttribute
+	private Authentication authentication;
+	
 	public String getType() {
 		return ClassUtils.getShortClassName(getClass()).toLowerCase();
 	}
@@ -26,5 +29,24 @@ public abstract class AbstractMenuItem implements MenuItem {
 	{
 		return platform;
 	}
+	
+	public Authentication getAuthentication()
+	{
+		return authentication;
+	}
+	
+	@Override
+	public void setAuthentication(Authentication authentication) {
+		this.authentication = authentication;
+	}
 
+	@Override
+	public void setPlatform(Platform platform) {
+		this.platform = platform;
+	}
+	
+	@Override
+	public String toString() {
+		return "["+getText()+":"+platform+"]";
+	}
 }

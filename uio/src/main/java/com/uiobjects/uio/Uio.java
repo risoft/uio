@@ -123,8 +123,10 @@ public class Uio {
 	private void emitButtons(Context ctx, Class<?> cl) throws IOException {
 		Writer w = ctx.getWriter();
 		String className = ClassUtils.getShortClassName(cl);
+		Object o = newInstance(cl);
+
 		w.append("uio.formdefs.").append(className).append(".buttons=");
-		new ButtonsEmitter(ctx).emit(cl);
+		new ButtonsEmitter(ctx).emit(o);
 	}
 	
 

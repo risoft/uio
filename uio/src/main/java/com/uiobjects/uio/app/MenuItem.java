@@ -14,6 +14,13 @@ public interface MenuItem {
 	
 	public Platform getPlatform();
 	
+	public void setPlatform(Platform platform);
+
+	public Authentication getAuthentication();
+	
+	public void setAuthentication(Authentication authentication);
+
+	
 	public boolean getLeaf();
 
 }

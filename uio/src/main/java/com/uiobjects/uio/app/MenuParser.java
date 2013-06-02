@@ -25,11 +25,12 @@ public class MenuParser {
 		return getXStream().toXML(submenu);
 	}
 	
-	public Submenu parse()
+	public Submenu parseraw()
 	{
 		InputStream inp = getInputStream();
 		XStream xstream = getXStream();
 		Submenu submenu = (Submenu) xstream.fromXML(inp);
+		
 		try {
 			inp.close();
 		} catch (IOException e) {
@@ -37,6 +38,15 @@ public class MenuParser {
 		}
 		return submenu;
 	}
+	
+	public Submenu parse()
+	{
+		Submenu sm = parseraw();
+		MenuTreeCompleter mtc = new MenuTreeCompleter();
+		mtc.complete(sm, "platform", "authentication");
+		return sm;
+	}
+	
 	
 	private InputStream getInputStream() {
 		InputStream inp =

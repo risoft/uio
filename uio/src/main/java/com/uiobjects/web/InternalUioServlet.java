@@ -14,7 +14,7 @@ import org.apache.commons.io.IOUtils;
 
 import com.uiobjects.uio.Uio;
 import com.uiobjects.uio.UioFactory;
-import com.uiobjects.uio.UioMenu;
+import com.uiobjects.uio.app.UioMenu;
 import com.uiobjects.uio.exceptions.UioException;
 
 public class InternalUioServlet {
@@ -66,7 +66,7 @@ public class InternalUioServlet {
 			HttpServletResponse resp) {
 		resp.setContentType("application/javascript");
 		resp.setCharacterEncoding("utf-8");		
-		String mobileMenu = uioMenu.getMobileMenu();
+		String mobileMenu = uioMenu.getMenu(true, isAuth(req));
 		try {
 			resp.getWriter().write(mobileMenu);
 		} catch (IOException e) {
@@ -74,11 +74,15 @@ public class InternalUioServlet {
 		}		
 	}
 
+	private boolean isAuth(HttpServletRequest req) {
+		return req.getSession().getAttribute("home") != null;
+	}
+
 	private void serveDesktopMenu(HttpServletRequest req,
 			HttpServletResponse resp) {
 		resp.setContentType("application/javascript");
 		resp.setCharacterEncoding("utf-8");		
-		String desktopMenu = uioMenu.getDesktopMenu();
+		String desktopMenu = uioMenu.getMenu(false, isAuth(req));
 		try {
 			resp.getWriter().write(desktopMenu);
 		} catch (IOException e) {
