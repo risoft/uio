@@ -1,7 +1,7 @@
 Ext.define('uio.desktop.UioGrid', {
     extend: 'Ext.grid.Panel',
     requires: [
-        'Ext.grid.column.Action', 'uio.desktop.UioStore'
+        'Ext.grid.column.Action', 'uio.desktop.UioStore', 'uio.desktop.UioGridButton'
     ],
     xtype: 'uiogrid',
     stateful: true,
@@ -15,7 +15,6 @@ Ext.define('uio.desktop.UioGrid', {
     
     toggleGridButtons: function()
     {
-    	console.log("toggle");
     	var selection = this.getSelectionModel().getSelection();
     	var toolbar = this.down('toolbar');
     	if (!toolbar) return;

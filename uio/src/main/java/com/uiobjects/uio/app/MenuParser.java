@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import com.thoughtworks.xstream.XStream;
+import com.uiobjects.uio.buttons.GridButton;
 import com.uiobjects.uio.exceptions.UioException;
 
 public class MenuParser {
@@ -15,7 +16,8 @@ public class MenuParser {
 		xstream.processAnnotations(Link.class);
 		xstream.processAnnotations(Grid.class);
 		xstream.processAnnotations(Form.class);
-		xstream.alias("submenu", Submenu.class);
+		xstream.processAnnotations(GridButton.class);
+
 		
 		return xstream;
 	}

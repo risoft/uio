@@ -1,0 +1,23 @@
+{
+	xtype: 'button',
+    text: $ctx.J("submit"),
+    id: 'submitbutton',
+    handler: function() {
+    	#if ($ctx.mobile)
+    		var form = this.up('formpanel');
+    	#else
+    		var form = this.up('form').getForm();
+    	#end
+    	form.submit(
+    	{
+    		success: function(form, action) {
+    					#if ($button.reload)
+    					window.location.reload();
+    					#else
+                       form.reset();
+                       #end
+                    }
+    	}
+    	);
+    }
+}

@@ -13,13 +13,11 @@ Ext.define('uio.desktop.UioGridButton',
     				initComponent: function()
     				{
     					this.callParent();
-    					console.log("ic");
     					this.addListener("on", function(){alert("click");});
     				},
     				
     				handler: function(button, event)
     				{
-    					console.log("handler");
     					var grid = this.up('grid');
 		        		var selectionModel = grid.getSelectionModel();
 		        		var selection = selectionModel.getSelection();
@@ -43,6 +41,10 @@ Ext.define('uio.desktop.UioGridButton',
 		    			{
 		    	  			var config ={jclass: this.form, baseParams: {ids: ids}, header: false};
 		        			var form = Ext.create('uio.desktop.UioForm', config);
+		        			if (this.loadObject)
+	        				{
+		            	   		form.load({params: {id: ids[0]}});
+	        				}
 		        			var window = Ext.create('Ext.window.Window', {
 		        					layout: 'fit', items: [form], title: config.title, shrinkWrap: 3});
 		        					
