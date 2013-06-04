@@ -1,7 +1,7 @@
 Ext.define('uio.dekstop.UioFormWindow',
     			{
     				extend: 'Ext.window.Window',
-    				requires: [ 'uio.desktop.UioForm'],
+    				requires: [ 'uio.UioForm'],
     				xtype: 'uioformwindow',
     				constructor: function(config) {
     					

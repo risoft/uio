@@ -37,10 +37,10 @@ public class InternalUioServlet {
 
 		String path = req.getPathInfo();
 				
-		if ("/uio-mobile-definitions.js".equals(path)) serveMobileDefinitions(req, resp);
-		else if ("/uio-desktop-definitions.js".equals(path)) serveDesktopDefinitions(req, resp);
-		else if ("/uio-desktop-menu.js".equals(path)) serveDesktopMenu(req, resp);
-		else if ("/uio-mobile-menu.js".equals(path)) serveMobileMenu(req, resp);
+		if ("/mobile/definitions.js".equals(path)) serveMobileDefinitions(req, resp);
+		else if ("/desktop/definitions.js".equals(path)) serveDesktopDefinitions(req, resp);
+		else if ("/desktop/menu.js".equals(path)) serveDesktopMenu(req, resp);
+		else if ("/mobile/menu.js".equals(path)) serveMobileMenu(req, resp);
 		else serveStatic(req, resp);
 	}
 	
@@ -55,6 +55,7 @@ public class InternalUioServlet {
 		
 		if (path.endsWith(".js")) resp.setContentType("application/javascript");
 		else if (path.endsWith(".json")) resp.setContentType("application/json");
+		else if (path.endsWith(".css")) resp.setContentType("text/css");
 
 		IOUtils.copy(inp, resp.getOutputStream());
 		inp.close();

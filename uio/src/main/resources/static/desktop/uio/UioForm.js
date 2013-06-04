@@ -1,8 +1,8 @@
-Ext.define('uio.desktop.UioForm',
+Ext.define('uio.UioForm',
     			{
     				extend: 'Ext.form.Panel',
     				xtype: 'uioform',
-    				requires: ['uio.desktop.UioCombo'],
+    				requires: ['uio.UioCombo'],
     				allowOnlyWhitespace: false,
     				constructor: function(config) {
     					config.items = uio.formdefs[config.jclass].items;
@@ -11,7 +11,7 @@ Ext.define('uio.desktop.UioForm',
 
             	    	config.defaultType ='textfield';
 
-            	    	config.url = config.jclass+'/submit.htm';
+            	    	config.url = '../../'+config.jclass+'/submit.htm';
     					this.callParent(arguments);
     			    },
     			    load: function(config)
@@ -20,7 +20,7 @@ Ext.define('uio.desktop.UioForm',
 			    		{
 			    			config = {};
 			    		}
-    			    	config.url = config.url || this.jclass+"/load.json";
+    			    	config.url = config.url || '../../'+this.jclass+"/load.json";
     			    	config.method = config.method || 'get';
     			    	var f = this.callParent([config]);
     			    },

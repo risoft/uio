@@ -1,4 +1,4 @@
-Ext.define('uio.mobile.UioForm',
+Ext.define('uio.UioForm',
 			{
 				extend: 'Ext.form.Panel',
 				requires: ['Ext.field.Number'],
@@ -13,7 +13,10 @@ Ext.define('uio.mobile.UioForm',
 					config.title = uio.formdefs[config.jclass].title;
 
 
-					config.url = config.jclass+'/submit.htm';
+					config.url = '../../'+config.jclass+'/submit.htm';
+					
+					console.log("items: %o", config.items);
+					
 					this.callParent(arguments);
 			    },
 			    load: function(config)
@@ -22,7 +25,7 @@ Ext.define('uio.mobile.UioForm',
 		    		{
 		    			config = {};
 		    		}
-			    	config.url = config.url || this.jclass+"/load.json";
+			    	config.url = config.url || '../../'+this.jclass+"/load.json";
 			    	config.method = config.method || 'get';
 			    	var f = this.callParent([config]);
 			    },

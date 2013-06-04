@@ -1,4 +1,4 @@
-Ext.define('uio.mobile.UioRecordViewer', {
+Ext.define('uio.UioRecordViewer', {
     extend: 'Ext.Panel',
     xtype: 'uiorecordviewer',
     

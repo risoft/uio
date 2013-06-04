@@ -1,6 +1,6 @@
-Ext.define('uio.mobile.UioGrid', {
+Ext.define('uio.UioGrid', {
     extend: 'Ext.dataview.List',
-    requires: ['uio.mobile.UioRecordViewer'],
+    requires: ['uio.UioRecordViewer'],
  
     xtype: 'uiogrid',
     fullscreen: true,
@@ -16,7 +16,7 @@ Ext.define('uio.mobile.UioGrid', {
     
     select: function(record, arg2, arg3)
     {
-    	var recordViewer = Ext.create("uio.mobile.UioRecordViewer", {jclass:this.config.jclass, data: record.data});
+    	var recordViewer = Ext.create("uio.UioRecordViewer", {jclass:this.config.jclass, data: record.data});
     	Ext.Viewport.add(recordViewer);
     	recordViewer.show();
     	this.callParent(arguments);
@@ -29,7 +29,7 @@ Ext.define('uio.mobile.UioGrid', {
             autoLoad: true,
             proxy: {
             	type: 'ajax',
-            	url: config.jclass+'/list.json'}
+            	url: '../../'+config.jclass+'/list.json'}
         };  
     	config.autoLoad =true;
         config.itemTpl=  '{name}';

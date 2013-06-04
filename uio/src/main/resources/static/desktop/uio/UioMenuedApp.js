@@ -15,7 +15,7 @@ Ext.define('uio.MenuedApp',
 
             	    	config.defaultType ='textfield';
 
-            	    	config.url = config.jclass+'/submit.htm';
+            	    	config.url = '../../'+config.jclass+'/submit.htm';
     					this.callParent(arguments);
     			    },
     			    

@@ -1,7 +1,7 @@
-Ext.define('uio.desktop.UioGrid', {
+Ext.define('uio.UioGrid', {
     extend: 'Ext.grid.Panel',
     requires: [
-        'Ext.grid.column.Action', 'uio.desktop.UioStore', 'uio.desktop.UioGridButton'
+        'Ext.grid.column.Action', 'uio.UioStore', 'uio.UioGridButton'
     ],
     xtype: 'uiogrid',
     stateful: true,
@@ -44,7 +44,7 @@ Ext.define('uio.desktop.UioGrid', {
     
     constructor: function(config)
     {
-        config.store = Ext.create('uio.desktop.UioStore', {jclass: config.jclass, url: config.url || undefined});
+        config.store = Ext.create('uio.UioStore', {jclass: config.jclass, url: config.url || undefined});
         config.columns =uio.formdefs[config.jclass].gridColumns;
         config.title=uio.formdefs[config.jclass].gridTitle;
     	this.initConfig(config);

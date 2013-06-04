@@ -38,7 +38,7 @@ public class Uio {
 		Context ctx = new Context();
 		ctx.setMobile(mobile);
 		ctx.setWriter(writer);
-		writer.write("Ext.ns('uio.formdefs');\n");
+		writer.write("uio = {formdefs: {}};\n");
 		for(int i=0; i < classes.size(); i++)
 		{
 			Class<?> cl = classes.get(i);

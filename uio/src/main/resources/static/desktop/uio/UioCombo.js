@@ -1,6 +1,6 @@
 
 
-Ext.define('uio.desktop.UioCombo', {
+Ext.define('uio.UioCombo', {
 	extend: 'Ext.form.ComboBox',
     queryMode: 'remote',
     displayField: 'display',
@@ -15,7 +15,7 @@ Ext.define('uio.desktop.UioCombo', {
     	    fields: ['display', 'value'],
     	    proxy: {
     	    	type: 'ajax',
-    	    	url: this.jclass+'/combo.json'
+    	    	url: '../../'+this.jclass+'/combo.json'
     	    		}
     	});
     }
