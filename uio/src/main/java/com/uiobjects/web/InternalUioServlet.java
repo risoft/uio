@@ -3,8 +3,6 @@ package com.uiobjects.web;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringWriter;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +20,8 @@ public class InternalUioServlet {
 
 	private Uio uio;
 	private UioMenu uioMenu;
-	private Map<String, String> result = new HashMap<String, String>();
+	private String desktopDefinitions;
+	private String mobileDefinitions;
 	
 	public void init()  {
 		try {
@@ -109,11 +108,15 @@ public class InternalUioServlet {
 		try {
 			resp.setContentType("application/javascript");
 			resp.setCharacterEncoding("utf-8");		
-			StringWriter sw = new StringWriter();
-			uio.emitDesktop(sw);
-			sw.flush();
-			sw.close();
-			resp.getWriter().write(sw.toString());
+			if (desktopDefinitions == null)
+			{
+				StringWriter sw = new StringWriter();
+				uio.emitDesktop(sw);
+				sw.flush();
+				sw.close();
+				desktopDefinitions = sw.toString();
+			}
+			resp.getWriter().write(desktopDefinitions);
 		} catch (IOException e) {
 			throw new UioException(e);
 		}	
@@ -123,11 +126,15 @@ public class InternalUioServlet {
 		try {
 			resp.setContentType("application/javascript");
 			resp.setCharacterEncoding("utf-8");		
-			StringWriter sw = new StringWriter();
-			uio.emitMobile(sw);
-			sw.flush();
-			sw.close();
-			resp.getWriter().write(sw.toString());
+			if (mobileDefinitions ==null)
+			{
+				StringWriter sw = new StringWriter();
+				uio.emitMobile(sw);
+				sw.flush();
+				sw.close();
+				mobileDefinitions = sw.toString();
+			}
+			resp.getWriter().write(mobileDefinitions);
 		} catch (IOException e) {
 			throw new UioException(e);
 		}	
