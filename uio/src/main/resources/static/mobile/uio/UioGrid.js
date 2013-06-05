@@ -16,7 +16,7 @@ Ext.define('uio.UioGrid', {
     
     select: function(record, arg2, arg3)
     {
-    	var recordViewer = Ext.create("uio.UioRecordViewer", {jclass:this.config.jclass, data: record.data});
+    	var recordViewer = Ext.create("uio.UioRecordViewer", {jclass:this.config.jclass, data: record.data, layout:'fit'});
     	Ext.Viewport.add(recordViewer);
     	recordViewer.show();
     	this.callParent(arguments);

@@ -1,6 +1,7 @@
 Ext.define('uio.UioRecordViewer', {
     extend: 'Ext.Panel',
     xtype: 'uiorecordviewer',
+   
     
   constructor: function(config)
     {
@@ -9,11 +10,16 @@ Ext.define('uio.UioRecordViewer', {
 		  viewer.destroy();
 	  }};
 
+	  var mydata = [];
 	 
-	  var panel = {xtype: 'panel', tpl: uio.formdefs[config.jclass].tpl, data: config.data};
+	  for(var attr in config.data)
+	  {
+		  mydata.push({name: attr, value: config.data[attr]});
+	  }
 	  
-	  config.items = [{docked: 'top', xtype: 'toolbar', title: uio.formdefs[config.jclass].title, items:[closeButton]}, panel];
-	  
-      this.callParent(arguments);
+	  var fieldsList = {xtype: 'list', store: {fields: ["name", "value"], data: mydata}, itemTpl: "<b>{name}<b>: {value}"};
+	  config.items = [{docked: 'top', xtype: 'toolbar', title: uio.formdefs[config.jclass].title, items:[closeButton]}, fieldsList];
+	  config.layout="fit";
+	  this.callParent(arguments);
     }
 });

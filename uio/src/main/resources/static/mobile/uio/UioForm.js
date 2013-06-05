@@ -4,6 +4,9 @@ Ext.define('uio.UioForm',
 				requires: ['Ext.field.Number'],
 				xtype: 'uioform',
 				allowOnlyWhitespace: false,
+				masked: {xtype: 'loadmask', message: 'Loading'},
+				
+				
 				constructor: function(config) {
 					config.items = uio.formdefs[config.jclass].items;
 					config.buttons = uio.formdefs[config.jclass].buttons;
