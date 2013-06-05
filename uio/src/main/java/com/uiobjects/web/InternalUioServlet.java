@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 
+import com.uiobjects.uio.MobileOrDesktop;
 import com.uiobjects.uio.Uio;
 import com.uiobjects.uio.UioFactory;
 import com.uiobjects.uio.app.UioMenu;
@@ -36,14 +37,27 @@ public class InternalUioServlet {
 			throws ServletException, IOException {
 
 		String path = req.getPathInfo();
-				
-		if ("/mobile/definitions.js".equals(path)) serveMobileDefinitions(req, resp);
+		
+		if (path == null || "/".equals(path)) redirectByClientType(req, resp);
+		else if ("/mobile/definitions.js".equals(path)) serveMobileDefinitions(req, resp);
 		else if ("/desktop/definitions.js".equals(path)) serveDesktopDefinitions(req, resp);
 		else if ("/desktop/menu.js".equals(path)) serveDesktopMenu(req, resp);
 		else if ("/mobile/menu.js".equals(path)) serveMobileMenu(req, resp);
 		else serveStatic(req, resp);
 	}
 	
+	private void redirectByClientType(HttpServletRequest req,
+			HttpServletResponse resp) {
+		MobileOrDesktop mod = new MobileOrDesktop();
+		String path = req.getPathInfo();
+		path = path == null ? "uio/" : path;
+		try {
+			resp.sendRedirect(mod.isMobile(req) ? path+"mobile/main.html" : path+"desktop/main.html");
+		} catch (IOException e) {
+			throw new UioException(e);
+		}
+	}
+
 	private void serveStatic(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		String path = req.getPathInfo();
 		InputStream inp = InternalUioServlet.class.getClassLoader().getResourceAsStream("static"+path);
