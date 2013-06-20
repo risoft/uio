@@ -73,7 +73,7 @@ Ext.application({
 								}
 							}
 							
-							var elem ={xtype: 'uiogrid', jclass: o.className, bbar: bbar};
+							var elem ={xtype: 'uiogrid', jclass: o.className, url: o.url, bbar: bbar};
 
 							var windowConfig =  {layout:'fit', title: config.title, items: [elem]};
 							windowConfig.height = 300;

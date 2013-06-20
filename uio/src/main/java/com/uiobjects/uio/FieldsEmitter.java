@@ -73,10 +73,18 @@ public class FieldsEmitter implements Emitter {
 		if (Boolean.class.equals(ClassUtils.primitiveToWrapper(desc.getPropertyType())))
 		{
 			modifyPerBooleanType(form, desc, map);
-
+		}
+		if (java.util.Date.class.equals(desc.getPropertyType()))
+		{
+			modifyPerDateType(form, desc,map);
 		}
 	}
 	
+	private void modifyPerDateType(Object form, PropertyDescriptor desc,
+			Map<String, String> map) {
+		map.put("xtype", "'datefield'");
+	}
+
 	private void modifyPerBooleanType(Object form, PropertyDescriptor desc,
 			Map<String, String> map) {
 		map.put("xtype", "'checkboxfield'");

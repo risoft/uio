@@ -7,14 +7,14 @@ Ext.define('uio.UioStore',
     					config.autoLoad = true;
     					config.proxy = {
     					        type: 'ajax',
-    					        url: config.url || '../../'+config.jclass+'/list.json',
+    					        url: config.url ? '../../'+config.url : '../../'+config.jclass+'/list.json',
     					        reader: {
     					            type: 'json',
     					            root: 'images',
     					            idProperty: uio.formdefs[config.jclass].idField
     					        }
     					    },
-            	    	config.url = config.url || '../../'+config.jclass+'/list.json';
+            	    	config.url = config.url ? '../../'+config.url : '../../'+config.jclass+'/list.json';
     					this.callParent(arguments);
     			    },
     				

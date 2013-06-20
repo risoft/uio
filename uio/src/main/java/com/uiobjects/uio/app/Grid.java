@@ -24,6 +24,9 @@ public class Grid extends AbstractMenuItem {
 	private boolean loadObject = false;
 	@XStreamImplicit
 	private List<GridButton> buttons;
+	
+	@XStreamAsAttribute
+	private String url;
 
 	public String getName() {
 		return name;
@@ -67,6 +70,13 @@ public class Grid extends AbstractMenuItem {
 
 	public List<GridButton> getButtons() {
 		return buttons;
+	}
+	
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	public String getUrl() {
+		return url;
 	}
 
 }

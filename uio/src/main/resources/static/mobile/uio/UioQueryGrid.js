@@ -1,10 +1,9 @@
-Ext.define('uio.UioGrid', {
+Ext.define('uio.UioQueryGrid', {
     extend: 'Ext.dataview.List',
     requires: ['uio.UioRecordViewer'],
  
-    xtype: 'uiogrid',
+    xtype: 'uioquerygrid',
     fullscreen: true,
-    disclosureProperty: 'name',
     onItemDisclosure: true,
   
     
@@ -29,14 +28,26 @@ Ext.define('uio.UioGrid', {
             autoLoad: true,
             proxy: {
             	type: 'ajax',
-            	url: config.url || '../../'+config.jclass+'/list.json'}
+            	reader: {
+            		rootProperty: 'rows',
+            	},
+            	url: config.url}
         };  
     	config.autoLoad =true;
-        config.itemTpl=  config.itemTpl || '{name}';
+        config.itemTpl=  config.itemTpl;
 
-    	config.disclosureProperty= config.disclosureProperty || 'name';
+    	config.disclosureProperty= config.disclosureProperty;
         config.onItemDisclosure={scope: this,handler: function(record, button, index){this.select(record, button, index)}};
+
         
-     	this.callParent(arguments);
+        config.plugins=  [
+                  {
+                      xclass: 'Ext.plugin.ListPaging',
+                      autoPaging: true
+                  },
+                  {xclass: 'Ext.plugin.PullRefresh'}
+              ];
+        
+       this.callParent(arguments);
     }
 });

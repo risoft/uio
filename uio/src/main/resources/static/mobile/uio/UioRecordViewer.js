@@ -14,11 +14,12 @@ Ext.define('uio.UioRecordViewer', {
 	 
 	  for(var attr in config.data)
 	  {
+		  if (attr === "id" && (/ext-record-/).test(config.data[attr])) continue;
 		  mydata.push({name: attr, value: config.data[attr]});
 	  }
 	  
 	  var fieldsList = {xtype: 'list', store: {fields: ["name", "value"], data: mydata}, itemTpl: "<b>{name}<b>: {value}"};
-	  config.items = [{docked: 'top', xtype: 'toolbar', title: uio.formdefs[config.jclass].title, items:[closeButton]}, fieldsList];
+	  config.items = [{docked: 'top', xtype: 'toolbar', title: config.title, items:[closeButton]}, fieldsList];
 	  config.layout="fit";
 	  this.callParent(arguments);
     }
