@@ -19,6 +19,7 @@
 	</parent>
 	<name>uio</name>
 	<url>https://github.com/risoft/uio</url>
+	<description>A library that generates mobile and desktop UI tailored for your server side objects</description>
 	<scm>
 		<connection>scm:git:https://github.com/risoft/uio.git/</connection>
 		<developerConnection>scm:git:https://github.com/risoft/uio.git</developerConnection>
