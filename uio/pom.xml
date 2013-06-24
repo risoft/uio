@@ -7,8 +7,10 @@
 	<version>1.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<licenses>
-		<name>GNU General Public License version 3.0</name>
-		<url>http://www.gnu.org/copyleft/gpl.html</url>
+		<license>
+			<name>GNU General Public License version 3.0</name>
+			<url>http://www.gnu.org/copyleft/gpl.html</url>
+		</license>
 	</licenses>
 
 
@@ -25,6 +27,12 @@
 		<developerConnection>scm:git:https://github.com/risoft/uio.git</developerConnection>
 		<url>https://github.com/risoft/uio</url>
 	</scm>
+	<developers>
+		<developer>
+			<name>Andy Worms</name>
+			<email>andy@highwise.com</email>
+		</developer>
+	</developers>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
