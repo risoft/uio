@@ -1,0 +1,12 @@
+com.uiobjects.testbeans.Customer
+com.uiobjects.testbeans.Month
+com.uiobjects.testbeans.MonthlyTicket
+com.uiobjects.testbeans.OutgoingEmail
+com.uiobjects.testbeans.SmsOrigin
+com.uiobjects.testbeans.SmsTemplate
+com.uiobjects.testbeans.MailTemplate
+com.uiobjects.testbeans.Ticket
+com.uiobjects.testbeans.Login
+com.uiobjects.testbeans.MassSms
+com.uiobjects.testbeans.MassEmail
+

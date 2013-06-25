@@ -1,0 +1,10 @@
+
+ uio.formdefs.${className}.gridColumns = [
+ #foreach($field in $fields)
+            {
+                text     : $ctx.J($field, 'grid'),
+                dataIndex: '$field.name'##
+                #if($ctx.emitterUtils.hide($field)), hidden: true #end
+            }#if ($foreach.hasNext),#end
+#end
+];
