@@ -12,10 +12,9 @@ Ext.define('uio.UioQueryContainer', {
     	config.listeners = {
     			initialize: function(container, opts){
     				console.log("init");
-    				Ext.Ajax.request({url: '../../SqlQry/query/language.json',
+    				Ext.Ajax.request({url: config.url,
     					success: function()
     					{
-    						console.log("after ajax");
     						Ext.Viewport.removeAll();
     						Ext.Viewport.add({xtype: 'uioquerygrid', disclosureProperty: 'Country', itemTpl: '{Name}', fields: ['Country', 'Name'], url: '/mad/SqlQry/query/language/execute.json'});
     					}
