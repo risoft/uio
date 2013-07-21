@@ -24,7 +24,7 @@ Ext.define('uio.UioQueryGrid', {
     constructor: function(config)
     {
     	config.store = {
-            fields: config.fields || uio.formdefs[config.jclass].storeFields,
+            fields: config.fields,
             autoLoad: true,
             proxy: {
             	type: 'ajax',
